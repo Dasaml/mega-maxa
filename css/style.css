@@ -54,6 +54,11 @@ body.mega-maxa {
 	outline: none;
 	color: #ffffff;
 }
+.mega-maxa .link-inline {
+	text-decoration: underline;
+	outline: none;
+	color: #6200bf;
+}
 .mega-maxa .btn-wrapper {
 	margin: 0 0 15px;
 	z-index: 2;
