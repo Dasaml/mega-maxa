@@ -7,19 +7,14 @@
     <meta name="description" content="Megamaxa - Nová loterie vždy o 200 milionů. Losujeme 2x týdně a o výhru se nikým nedělíte!">
     <meta property="og:title" content="Megamaxa o 200 MEGA!">
     <meta property="og:description" content="Megamaxa - Nová loterie vždy o 200 milionů. Losujeme 2x týdně a o výhru se nikým nedělíte!">
-    <meta property="og:image" content="www/korunka_bingo/img/agata-leanding-page-bingo.webp">
+    <meta property="og:image" content="https://mega.maxa.cz/img/og-img.webp">
     <meta property="og:url" content="https://mega.maxa.cz/">
-    <meta property="og:logo" content="www/korunka_bingo/img/online-bingo-new.webp">
+    <meta property="og:logo" content="https://mega.maxa.cz/img/logo-maxa-orange.webp">
     <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="css/style.css?v6">
     <title>Megamaxa o 200 MEGA!</title>
     <link rel="stylesheet" href="https://akce.tipsport.cz/cookies-global/v2/css/maxa.min.css?v2">
-    <script src="https://akce.tipsport.cz/cookies-global/v2/js/maxa.min.js"></script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -67,8 +62,21 @@
             </div>
             <nav class="nav">
                 <button class="hamburger">
-                    <i class="menuIcon material-icons">menu</i>
-                    <i class="closeIcon material-icons">close</i>
+                    <div class="svg-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                        <rect width="256" height="256" fill="none"/>
+                        <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        <line x1="40" y1="64" x2="216" y2="64" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        <line x1="40" y1="192" x2="216" y2="192" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        </svg>
+                    </div>
+                    <div class="svg-menu-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+                        <rect width="256" height="256" fill="none"/>
+                        <line x1="200" y1="56" x2="56" y2="200" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        <line x1="200" y1="200" x2="56" y2="56" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+                        </svg>
+                    </div>
                 </button>
                 <ul class="menu">
                     <li>
@@ -142,7 +150,7 @@
                     <a id="megamaxa_350" class="btn-button" href="https://www.maxa.cz/registrace" target="_blank">Bonus 350&nbsp;Kč</a>
                 </div>
                 <div class="image-box">
-                    <img class="text-image-mobile" src="./img/modelka-maly-princ-new.webp" alt="Nová loterijní hra Loterie Maxa">
+                    <img class="text-image-mobile" src="./img/modelka-mobil.png" alt="Nová loterijní hra Loterie Maxa">
                 </div>
             </div>
         </div>
@@ -293,152 +301,6 @@
     </div>
 </footer>
 <!-- footer end -->
-<script src="js/index-test.js"></script>
-
-<script>
-    function getNextDrawDay(now) {
-        // Vstup: aktuální čas
-        // Výstup: {drawDate, endOfDraw, isDrawDay, inDrawWindow}
-
-        let day = now.getDay(); // 0 = neděle, 4 = čtvrtek
-        let hour = now.getHours();
-        let minute = now.getMinutes();
-
-        // Helper: Najdi nejbližší čtvrtek nebo neděli (18:00)
-        function getNextTargetDraw(targetDay) {
-            let result = new Date(now);
-            let add = (targetDay - day + 7) % 7;
-            if (add === 0 && (hour > 19 || (hour === 19 && minute >= 35))) {
-                add = 7; // už je po losování, posun na další týden
-            }
-            result.setDate(now.getDate() + add);
-            result.setHours(18, 0, 0, 0); // vždy v 18:00
-            return result;
-        }
-
-        let isDrawDay = (day === 0 || day === 4);
-        let drawDate = null;
-        let endOfDraw = null;
-        let inDrawWindow = false;
-
-        if (isDrawDay) {
-            // Jsme ve čtvrtek nebo neděli – je okno aktivní?
-            let start = new Date(now);
-            start.setHours(18, 0, 0, 0);
-            let end = new Date(now);
-            end.setHours(19, 35, 0, 0);
-
-            inDrawWindow = now >= start && now < end;
-            drawDate = start;
-            endOfDraw = end;
-
-            if (!inDrawWindow && now >= end) {
-                // po skončení losovacího okna, hledáme další losování
-                if (day === 4) { // čtvrtek, další je neděle
-                    drawDate = getNextTargetDraw(0);
-                    endOfDraw = new Date(drawDate);
-                    endOfDraw.setHours(19, 35, 0, 0);
-                } else { // neděle, další je čtvrtek
-                    drawDate = getNextTargetDraw(4);
-                    endOfDraw = new Date(drawDate);
-                    endOfDraw.setHours(19, 35, 0, 0);
-                }
-            }
-        } else {
-            // není čtvrtek ani neděle
-            let nextTarget = (day < 4 || day > 0 && day < 4) ? 4 : 0;
-            drawDate = getNextTargetDraw(nextTarget);
-            endOfDraw = new Date(drawDate);
-            endOfDraw.setHours(19, 35, 0, 0);
-        }
-
-        return {
-            drawDate,
-            endOfDraw,
-            inDrawWindow
-        };
-    }
-
-    function spustOdpocet() {
-        setInterval(function() {
-            const now = new Date();
-            const {drawDate, endOfDraw, inDrawWindow} = getNextDrawDay(now);
-
-            // Kam countdown směřuje
-            let countdownTarget = inDrawWindow ? endOfDraw : drawDate;
-            let rozdil = countdownTarget - now;
-
-            // Správná hláška
-            const message = inDrawWindow
-                ? '<p class="title-h2">Výsledky za:</p>'
-                : '<p class="title-h2">Další slosování za:</p>';
-
-            document.querySelector('.flip-clock-message').innerHTML = message;
-
-            // Pokud se countdown dostane do mínusu, neresetujeme, protože další cyklus to sám opraví
-            if (rozdil < 0) rozdil = 0;
-
-            const dny = Math.floor(rozdil / (1000 * 60 * 60 * 24));
-            const hodiny = Math.floor((rozdil % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minuty = Math.floor((rozdil % (1000 * 60 * 60)) / (1000 * 60));
-            const vteriny = Math.floor((rozdil % (1000 * 60)) / 1000);
-
-            document.getElementById('dny').textContent = dny < 10 ? '0' + dny : dny;
-            document.getElementById('hodiny').textContent = hodiny < 10 ? '0' + hodiny : hodiny;
-            document.getElementById('minuty').textContent = minuty < 10 ? '0' + minuty : minuty;
-            document.getElementById('vteriny').textContent = vteriny < 10 ? '0' + vteriny : vteriny;
-        }, 1000);
-    }
-
-    spustOdpocet();
-
-</script>
-
-<script async>
-    // Function to get URL parameters as an object
-    function getUrlParams() {
-        const params = {};
-        const queryString = window.location.search.substring(1); // Get the query string without the "?"
-        const pairs = queryString.split("&");
-
-        pairs.forEach(pair => {
-            const [key, value] = pair.split("=");
-            if (key) {
-                params[decodeURIComponent(key)] = decodeURIComponent(value || "");
-            }
-        });
-
-        return params;
-    }
-
-    // Function to insert a pixel with the extracted parameters
-    function insertPixel() {
-        const params = getUrlParams();
-        const pixelUrl = "https://www.maxa.cz/PartnerRedirectAction.do";
-
-
-        // Extract specific parameters
-        const PID = params.pid || "";
-        const BID = params.bid || "";
-        const SID = params.sid || "";
-        const TID = params.tid || "";
-
-        // Construct the pixel URL with the extracted parameters and noredir
-        const pixelSrc = `${pixelUrl}?pid=${PID}&bid=${BID}&sid=${SID}&tid=${TID}&noredir=T`;
-
-        // Create an image element for the pixel
-        const pixel = document.createElement("img");
-        pixel.src = pixelSrc;
-        pixel.width = 1;
-        pixel.height = 1;
-        pixel.style.display = "none";
-
-        // Append the pixel to the body
-        document.body.appendChild(pixel);
-    }
-
-    // Call the function to insert the pixel
-    insertPixel();
-</script>
+<script src="js/index.js"></script>
 </body>
 </html>
