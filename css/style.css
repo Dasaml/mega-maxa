@@ -91,6 +91,7 @@ body.mega-maxa {
 	background-color: #00cccce3;
 }
 .mega-maxa .btn-button.orange-btn {
+	position: relative;
 	background-color: #ffb233;
 	color: #6200bf;
 	font-size: 2rem;
@@ -98,6 +99,7 @@ body.mega-maxa {
     letter-spacing: 1px;
     padding: 20px 30px;
     margin: 0;
+    z-index: 2;
 }
 .mega-maxa .btn-button.orange-btn:hover {
 	background-color: #7105d9;
