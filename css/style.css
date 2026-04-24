@@ -88,7 +88,7 @@ body.mega-maxa {
 	transition: all .3s ease-in-out;
 }
 .mega-maxa .btn-button:hover {
-	background-color: #00cccce3;
+	background-color: #e39a38;
 }
 .mega-maxa .btn-button.orange-btn {
 	position: relative;
@@ -102,7 +102,7 @@ body.mega-maxa {
     z-index: 2;
 }
 .mega-maxa .btn-button.orange-btn:hover {
-	background-color: #7105d9;
+	background-color: #e39a38;
 }
 .mega-maxa .p-r {
 	margin: 25px auto 10px;
