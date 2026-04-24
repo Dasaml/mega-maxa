@@ -105,7 +105,7 @@ body.mega-maxa {
 	background-color: #e39a38;
 }
 .mega-maxa .p-r {
-	margin: 25px auto 10px;
+	margin: 25px auto 0;
 }
 .mega-maxa .text-color-purple {
 	color: #6200bf;
@@ -486,19 +486,10 @@ body.mega-maxa {
 
 /* Odpočet */
 .mega-maxa .box-wrapper.countdown-wrapper {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
 	flex-direction: column;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
 	justify-content: flex-start;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
+	align-items: center;
 	gap: 10px;
 }
 .mega-maxa .flip-clock {
@@ -623,7 +614,9 @@ body.mega-maxa {
     left: 0;
     top: 0;
     width: 100%;
-    background-image: url(../img/konfeti.webp);
+    background-image:
+    linear-gradient(rgba(80, 41, 130, 0.5), rgba(80, 41, 130, 0.5)), 
+    url('../img/konfeti.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -848,16 +841,6 @@ body.mega-maxa {
 	.mega-maxa .warning-img-mobile {
 		display: none;
 	}
-	.mega-maxa .box-wrapper.countdown-wrapper {
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-		gap: 30px;
-	}
 	.mega-maxa .digit-face {
 		width: 80px;
 		height: 75px;
@@ -1022,6 +1005,15 @@ body.mega-maxa {
 	.mega-maxa .iframe-set {
 		width: 90%;
 	}
+
+	.mega-maxa .box-wrapper.countdown-wrapper {
+		flex-direction: row;
+		align-items: center;
+		gap: 30px;
+	}
+	.mega-maxa .p-r {
+		margin: 0 0 0 auto;
+	}
 }
 @media(min-width: 1024px) {
 	.mega-maxa .navigation-wrapper-desktop .navigation-modify-container {
@@ -1037,9 +1029,6 @@ body.mega-maxa {
 	}
 	.mega-maxa .banner {
 		height: 550px;
-	}
-	.mega-maxa .p-r {
-		margin: 0 0 0 auto;
 	}
 }
 @media(min-width: 1400px) {
