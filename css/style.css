@@ -1,7 +1,8 @@
 @font-face {
-	font-family: Space Grotesk;
-	src: url("../fonts/SpaceGrotesk-Medium.woff2") format("woff");
+	font-family: "Space Grotesk"; 
+	src: url("../fonts/SpaceGrotesk-Medium.woff2") format("woff2");
 	font-weight: 500;
+	font-display: swap;
 }
 
 html {
@@ -13,9 +14,9 @@ body.mega-maxa {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: "Roboto", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	font-family: "Space Grotesk", Arial, sans-serif; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 	font-size: 16px;
 	font-weight: 500;
 	font-style: normal;
@@ -26,7 +27,6 @@ body.mega-maxa {
 }
 .mega-maxa .title-h1 {
 	color: #fff;
-	font-family: Space Grotesk;
 	font-size: 2.2rem;
 	font-weight: 600;
 	line-height: 1.2;
@@ -34,7 +34,6 @@ body.mega-maxa {
 }
 .mega-maxa .title-h2 {
 	color: #6200bf;
-	font-family: Space Grotesk;
 	font-size: 1.8rem;
 	font-weight: 600;
 	letter-spacing: 1px;
@@ -44,7 +43,6 @@ body.mega-maxa {
 }
 .mega-maxa p {
 	color: #fff;
-	font-family: Space Grotesk;
 	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.6;
@@ -77,7 +75,6 @@ body.mega-maxa {
 	text-transform: uppercase;
 	display: inline-block;
 	font-size: 1rem;
-	font-family: Space Grotesk;
 	letter-spacing: 2px;
 	cursor: pointer;
 	opacity: 1;
@@ -101,7 +98,7 @@ body.mega-maxa {
 	background-color: #7105d9;
 }
 .mega-maxa .p-r {
-	margin-left: auto;
+	margin: 25px auto 10px;
 }
 .mega-maxa .text-color-purple {
 	color: #6200bf;
@@ -229,7 +226,10 @@ body.mega-maxa {
 .mega-maxa .material-icons {
 	color: #fff;
 }
-.mega-maxa .closeIcon {
+.mega-maxa .menu.showMenu {
+    display: block !important;
+}
+.mega-maxa .svg-menu-close {
 	display: none;
 }
 .mega-maxa .menu {
@@ -245,7 +245,7 @@ body.mega-maxa {
 	list-style: none;
 	padding-top: 4rem;
 }
-.mega-maxa .showMenu {
+.mega-maxa .svg-menu {
 	display: block;
 }
 .mega-maxa .navigation-wrapper-mobile {
@@ -361,7 +361,6 @@ body.mega-maxa {
 .mega-maxa .navigation-wrapper-mobile nav a {
 	position: relative;
 	color: #fff;
-	font-family: Space Grotesk;
 	font-size: 1rem;
 	font-weight: 500;
 	letter-spacing: .3px;
@@ -545,7 +544,6 @@ body.mega-maxa {
 }
 .mega-maxa .time-label {
 	margin-top: 5px;
-	font-family: Space Grotesk;
 	font-size: 1rem;
 	font-weight: 600;
 	letter-spacing: .5px;
@@ -611,7 +609,7 @@ body.mega-maxa {
 
 /* Bonus */
 .mega-maxa .section-3.content-with-image::after {
-display: block;
+	display: block;
     height: 100%;
     content: "";
     position: absolute;
@@ -623,6 +621,11 @@ display: block;
     background-repeat: no-repeat;
     background-position: right bottom;
     z-index: 1;
+}
+.mega-maxa .img-mv {
+	width: 100%;
+    height: auto;
+    z-index: 2;
 }
 .mega-maxa .section-3 .box-wrapper,
 .mega-maxa .section-5 .box-wrapper,
@@ -824,7 +827,7 @@ display: block;
 	}
 	.mega-maxa .text-box h1 {
 		font-size: 2.6em;
-		margin-top: 20px;
+		margin-top: 30px;
 	}
 	.mega-maxa .py-4 {
 		padding: 4em 0;
@@ -902,11 +905,11 @@ display: block;
 		-ms-flex: 1;
 		flex: 1;
 		z-index: 1;
-		background-image: url('../img/modelka-maly-princ-fix.png');
-		height: 115%;
+		background-image: url('../img/modelka-maly-princ-new-fix.webp');
+		height: 135%;
 		margin-top: 0;
-		margin-bottom: -40px;
-		margin-right: -10px;
+		margin-bottom: -85px;
+		margin-right: -45px;
 	}
 	.mega-maxa .image-box::before {
 		display: -webkit-box;
@@ -938,7 +941,7 @@ display: block;
 		margin: 0 0 1em;
 	}
 	.mega-maxa .section-1 {
-		padding: 0;
+		padding: 0 0 1em;
 	}
 	.mega-maxa .banner {
 		position: relative;
@@ -1027,6 +1030,9 @@ display: block;
 	}
 	.mega-maxa .banner {
 		height: 550px;
+	}
+	.mega-maxa .p-r {
+		margin: 0 0 0 auto;
 	}
 }
 @media(min-width: 1400px) {
