@@ -6,7 +6,7 @@
     <meta name="description" content="Megamaxa - Nová loterie vždy o 200 milionů. Losujeme 2x týdně a o výhru se nikým nedělíte!">
     <meta property="og:title" content="Megamaxa o 200 MEGA!">
     <meta property="og:description" content="Megamaxa - Nová loterie vždy o 200 milionů. Losujeme 2x týdně a o výhru se nikým nedělíte!">
-    <meta property="og:image" content="https://dasaml.github.io/mega-maxa/img/og-img.webp">
+    <meta property="og:image" content="https://mega.maxa.cz/img/og-img.webp">
     <meta property="og:url" content="https://mega.maxa.cz/">
     <meta property="og:type" content="website">
     <link rel="preload" href="fonts/SpaceGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin>
@@ -161,36 +161,70 @@
     <!-- Počítadlo -->
     <div class="section section-countdown bg-teal py-4">
         <div class="container">
-            <div class="box-wrapper countdown-wrapper">
-                <div class="box-content-1">
-                    <div class="flip-clock-message"><p class="title-h2"></p></div>
-                </div>
-
-                <div class="box-content-2">
-                    <div class="flip-clock">
-                        <div class="time-segment">
-                            <div class="digit-face" id="dny">00</div>
-                            <div class="time-label">Dní</div>
+            <div class="countdown-main-container">
+                <div class="countdowns-left">
+                    <div class="countdown-row">
+                        <div class="box-wrapper countdown-wrapper">
+                            <div class="box-content-1">
+                                <div class="flip-clock-message"><p class="title-h2"></p></div>
+                            </div>
+                            <div class="box-content-2">
+                                <div class="flip-clock">
+                                    <div class="time-segment">
+                                        <div class="digit-face" id="dny">00</div>
+                                        <div class="time-label">Dní</div>
+                                    </div>
+                                    <div class="time-segment">
+                                        <div class="digit-face" id="hodiny">00</div>
+                                        <div class="time-label">Hodin</div>
+                                    </div>
+                                    <div class="time-segment">
+                                        <div class="digit-face" id="minuty">00</div>
+                                        <div class="time-label">Minut</div>
+                                    </div>
+                                    <div class="time-segment">
+                                        <div class="digit-face" id="vteriny">00</div>
+                                        <div class="time-label">Vteřin</div>
+                                    </div>
+                                </div>
+                            </div>      
                         </div>
-                        <div class="time-segment">
-                            <div class="digit-face" id="hodiny">00</div>
-                            <div class="time-label">Hodin</div>
-                        </div>
-                        <div class="time-segment">
-                            <div class="digit-face" id="minuty">00</div>
-                            <div class="time-label">Minut</div>
-                        </div>
-                        <div class="time-segment">
-                            <div class="digit-face" id="vteriny">00</div>
-                            <div class="time-label">Vteřin</div>
+                    </div>
+                    <div class="countdown-row">
+                        <div class="box-wrapper countdown-wrapper extra">
+                            <div class="box-content-1">
+                            <div class="flip-clock-message-extra"><p class="title-h2">Mimořádné slosování za:</p></div>
+                            </div>
+                            <div class="box-content-2">
+                                <div class="flip-clock">
+                                    <div class="time-segment">
+                                        <div class="digit-face" id="dny-extra">00</div>
+                                        <div class="time-label">Dní</div>
+                                    </div>
+                                    <div class="time-segment">
+                                        <div class="digit-face" id="hodiny-extra">00</div>
+                                        <div class="time-label">Hodin</div>
+                                    </div>
+                                    <div class="time-segment">
+                                        <div class="digit-face" id="minuty-extra">00</div>
+                                        <div class="time-label">Minut</div>
+                                    </div>
+                                    <div class="time-segment">
+                                        <div class="digit-face" id="vteriny-extra">00</div>
+                                        <div class="time-label">Vteřin</div>
+                                    </div>
+                                </div>
+                            </div>            
                         </div>
                     </div>
                 </div>
-                <div class="box-content-3 p-r">
-                    <div class="btn-wrapper">
-                        <a id="btn-vsadit-main" class="btn-button orange-btn" href="https://www.maxa.cz/detailHry/megamaxa" target="_blank" rel="noopener">Vsadit</a>
-                    </div>
-                </div>                
+                <div class="countdown-right">
+                    <div class="box-content-3 p-r">
+                        <div class="btn-wrapper">
+                            <a id="btn-vsadit-main" class="btn-button orange-btn" href="https://www.maxa.cz/detailHry/megamaxa" target="_blank" rel="noopener">Vsadit</a>
+                        </div>
+                    </div>   
+                </div>
             </div>
         </div>
     </div>
