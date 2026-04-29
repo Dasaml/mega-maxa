@@ -3,9 +3,8 @@
  */
 const menu = document.querySelector(".menu");
 const menuItems = document.querySelectorAll(".menuItem");
-const hamburger = document.querySelector(".hamburger"); // Toto zůstává jako hlavní obal/tlačítko
+const hamburger = document.querySelector(".hamburger");
 
-// Tady jsme změnili názvy podle tvého nového HTML
 const menuIcon = document.querySelector(".svg-menu");
 const closeIcon = document.querySelector(".svg-menu-close");
 
@@ -14,17 +13,14 @@ function toggleMenu() {
     menu.classList.toggle("showMenu");
     
     if (isShowMenu) {
-        // Menu se zavřelo -> ukaž hamburger, schovej křížek
         closeIcon.style.display = "none";
         menuIcon.style.display = "block";
     } else {
-        // Menu se otevřelo -> schovej hamburger, ukaž křížek
         closeIcon.style.display = "block";
         menuIcon.style.display = "none";
     }
 }
 
-// Zbytek tvého kódu (EventListenery) zůstává stejný...
 if (hamburger) {
     hamburger.addEventListener("click", toggleMenu);
 }
@@ -35,7 +31,7 @@ menuItems.forEach(menuItem => {
 
 
 /**
- * 2. CHYTRÝ ODPOČET
+ * 2. CHYTRÝ ODPOČET (Pravidelná slosování)
  */
 function getNextDrawDay(now) {
     // Vstup: aktuální čas
@@ -119,7 +115,6 @@ function spustOdpocet() {
             messageElement.innerHTML = message;
         }
 
-        // Pokud se countdown dostane do mínusu, neresetujeme, protože další cyklus to sám opraví
         if (rozdil < 0) rozdil = 0;
 
         const dny = Math.floor(rozdil / (1000 * 60 * 60 * 24));
@@ -139,8 +134,44 @@ function spustOdpocet() {
     }, 1000);
 }
 
-// Spuštění odpočtu
+/**
+ * 3. MIMOŘÁDNÉ SLOSOVÁNÍ (29. 5. 2026)
+ */
+function spustOdpocetExtra() {
+    // Cílové datum: 29. května 2026, 18:00:00
+    const targetDate = new Date('2026-05-29T18:00:00');
+
+    setInterval(function() {
+        const now = new Date();
+        let rozdil = targetDate - now;
+
+        if (rozdil < 0) {
+            rozdil = 0;
+            const msgExtra = document.querySelector('.flip-clock-message-extra');
+            if (msgExtra) msgExtra.innerHTML = '<p class="title-h2">Právě losujeme!</p>';
+        }
+
+        const dny = Math.floor(rozdil / (1000 * 60 * 60 * 24));
+        const hodiny = Math.floor((rozdil % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minuty = Math.floor((rozdil % (1000 * 60 * 60)) / (1000 * 60));
+        const vteriny = Math.floor((rozdil % (1000 * 60)) / 1000);
+
+        const dnyEl = document.getElementById('dny-extra');
+        const hodinyEl = document.getElementById('hodiny-extra');
+        const minutyEl = document.getElementById('minuty-extra');
+        const vterinyEl = document.getElementById('vteriny-extra');
+
+        if (dnyEl) dnyEl.textContent = dny < 10 ? '0' + dny : dny;
+        if (hodinyEl) hodinyEl.textContent = hodiny < 10 ? '0' + hodiny : hodiny;
+        if (minutyEl) minutyEl.textContent = minuty < 10 ? '0' + minuty : minuty;
+        if (vterinyEl) vterinyEl.textContent = vteriny < 10 ? '0' + vteriny : vteriny;
+        
+    }, 1000);
+}
+
+// Spuštění obou odpočtů při načtení
 spustOdpocet();
+spustOdpocetExtra();
 
 
 /**
